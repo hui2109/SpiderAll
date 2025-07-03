@@ -8,6 +8,7 @@ cmd = [
     "requests",
     "jupyterlab",
     "notebook",
+    "pycryptodome",
 ]
 
 subprocess.run(cmd, check=True)

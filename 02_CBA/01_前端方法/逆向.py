@@ -1,3 +1,5 @@
+import json
+
 import requests
 import execjs
 
@@ -23,7 +25,8 @@ payload = {
     "sortField": "pointsAverage"
 }
 
-response = requests.post(url=url, headers=headers, json=payload)
+response = requests.post(url=url, headers=headers, data=json.dumps(payload, separators=(',', ':')))  # {"season":2023,"matchtypeid":1,"direction":2,"range":1,"sortField":"pointsAverage"}
+# response = requests.post(url=url, headers=headers, json=payload)  # b'{"season": 2023, "matchtypeid": 1, "direction": 2, "range": 1, "sortField": "pointsAverage"}'
 print(response.request.body)
 mi = response.text.strip('"')
 

@@ -27,8 +27,9 @@ form_data = {
 }
 
 response = requests.post(url, headers=headers, data=form_data)
+print(response.request.body)
 
-song_url = response.json()['data'][0]['url']
-with open(f'../assets/{song_id}.m4a', mode='wb') as f:
-    response = requests.get(song_url, headers=headers)
-    f.write(response.content)
+# song_url = response.json()['data'][0]['url']
+# with open(f'../assets/{song_id}.m4a', mode='wb') as f:
+#     response = requests.get(song_url, headers=headers)
+#     f.write(response.content)
